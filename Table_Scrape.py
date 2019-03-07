@@ -12,9 +12,9 @@ import time
 with open ('Table.txt', 'w') as r:
     r.write('Trump Approval Index History Data\n')
 
+url = '' # Input website url here
 
-time.sleep=1
-res = requests.get('http://www.rasmussenreports.com/public_content/politics/trump_administration/trump_approval_index_history')
+res = requests.get(url)
 if res.status_code == 200:
     soup = BeautifulSoup(res.text, 'lxml')
     table = soup.find('table', class_ = 'renderedtable')
